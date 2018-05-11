@@ -148,26 +148,69 @@ public class Game {
      * @param grid 2D array of characters representing the game board
      * @return String indicating the outcome of the game: "X wins" or "O wins" or "Tie" or "None"
      */
-    public String checkGameWinner(char [][]grid){
+    public String checkGameWinner(char [][]grid) {
         String result = "None";
         //Student code goes here ...
         char symbol = ' ';
+        if (freeSpots < 5) {
+            if (grid[0][0] == grid[1][0] && grid[1][0] == grid[2][0] && grid[0][0] != '-') {
+                symbol = grid[0][0];
+                result = symbol + " wins";
+                return result;
+            }
+            ;
+            if (grid[0][1] == grid[1][1] && grid[1][1] == grid[2][1] && grid[0][1] != '-') {
+                symbol = grid[0][1];
+                result = symbol + " wins";
+                return result;
+            }
+            ;
+            if (grid[0][2] == grid[1][2] && grid[1][2] == grid[2][2] && grid[0][2] != '-') {
+                symbol = grid[0][2];
+                result = symbol + " wins";
+                return result;
+            }
+            ;
+            if (grid[0][0] == grid[0][1] && grid[0][1] == grid[0][2] && grid[0][0] != '-') {
+                symbol = grid[0][0];
+                result = symbol + " wins";
+                return result;
+            }
+            ;
+            if (grid[1][0] == grid[1][1] && grid[1][1] == grid[1][2] && grid[1][0] != '-') {
+                symbol = grid[1][0];
+                result = symbol + " wins";
+                return result;
+            }
+            ;
+            if (grid[2][0] == grid[2][1] && grid[2][1] == grid[2][2] && grid[2][0] != '-') {
+                symbol = grid[2][0];
+                result = symbol + " wins";
+                return result;
+            }
+            ;
+            if (grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2] && grid[0][0] != '-') {
+                symbol = grid[0][0];
+                result = symbol + " wins";
+                return result;
+            }
+            ;
+            if (grid[2][0] == grid[1][1] && grid[1][1] == grid[0][2] && grid[2][0] != '-') {
+                symbol = grid[2][0];
+                result = symbol + " wins";
+                return result;
+            }
+            ;
+            if (freeSpots <= 0 && grid[0][0] != '-') {
+                result = "Tie";
+                return result;
+            }
+            ;
 
-         if (grid[0][0] == grid [1][0] && grid [1][0] == grid[2][0] && grid[0][0] != '-' ){symbol = grid[0][0];result = symbol + " wins";};
-         if (grid[0][1] == grid [1][1] && grid [1][1] == grid[2][1] && grid[0][1] != '-' ){symbol = grid[0][2];result = symbol + " wins";};
-         if (grid[0][2] == grid [1][2] && grid [1][2] == grid[2][2] && grid[0][2] != '-' ){symbol = grid[0][2];result = symbol + " wins";};
-         if (grid[0][0] == grid [0][1] && grid [0][1] == grid[0][2] && grid[0][0] != '-' ){symbol = grid[0][0];result = symbol + " wins";};
-         if (grid[1][0] == grid [1][1] && grid [1][1] == grid[1][2] && grid[1][0] != '-' ){symbol = grid[1][0];result = symbol + " wins";};
-         if (grid[2][0] == grid [2][1] && grid [2][1] == grid[2][2] && grid[2][0] != '-' ){symbol = grid[2][0];result = symbol + " wins";};
-         if (grid[0][0] == grid [1][1] && grid [1][1] == grid[2][2] && grid[0][0] != '-' ){symbol = grid[0][0];result = symbol + " wins";};
-         if (grid[2][0] == grid [1][1] && grid [1][1] == grid[0][2] && grid[2][0] != '-' ){symbol = grid[2][0];result = symbol + " wins";};
-         if (freeSpots <= 0 && (Character.toString(symbol) == "o" || Character.toString(symbol) == "x")){result = "Tie";};
 
-
-
+        }
         return result;
     }
-
     /**
      * Main function
      * @param args command line arguments
